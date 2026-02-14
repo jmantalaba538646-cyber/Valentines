@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Flip Book</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Falling Hearts Background -->
+    <div class="falling-hearts">
+        <div class="falling-heart">💕</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">💗</div>
+        <div class="falling-heart">💖</div>
+        <div class="falling-heart">💕</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">💗</div>
+        <div class="falling-heart">💖</div>
+        <div class="falling-heart">💕</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">💗</div>
+        <div class="falling-heart">💖</div>
+        <div class="falling-heart">💕</div>
+        <div class="falling-heart">❤️</div>
+        <div class="falling-heart">💗</div>
+    </div>
+
+    <div id="hedlinecontainer">
+        <div id="shine">Happy Valentine's Day💞</div>
+    </div>
+
+
+    <div class="gallery">
+        <img src="images/1b8b79b0-56a3-48de-b3e5-04a31b812dcb.jpg" alt="a lovely kiss in the night">
+        <img src="images/435df6dd-7f4a-4feb-ad33-2c10d4f925a2.jpg" alt="a women inside a car">
+        <img src="images/605894213_709305365378728_8908671618083233578_n.jpg" alt="a baby">
+        <img src="images/637b183d-a15f-48eb-af92-6e735866999a.jpg" alt="a girl in the forest">
+        <img src="images/7874a249-9351-4c9e-8fe7-01cc615ba458.jpg" alt="a girl">
+    </div>
+
+    <!-- Cursor Trail Script -->
+    <script>
+        const hearts = ['💕', '❤️', '💗', '💖', '✨', '💘'];
+        let lastTime = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            const now = Date.now();
+            if (now - lastTime < 60) return; // throttle to ~16 hearts/sec
+            lastTime = now;
+
+            const heart = document.createElement('span');
+            heart.classList.add('cursor-heart');
+            heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+            heart.style.left = e.clientX + 'px';
+            heart.style.top = e.clientY + 'px';
+            heart.style.fontSize = (12 + Math.random() * 16) + 'px';
+            document.body.appendChild(heart);
+
+            // Remove after animation ends
+            heart.addEventListener('animationend', () => heart.remove());
+        });
+    </script>
+
+</body>
+
+</html>
