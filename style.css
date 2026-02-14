@@ -294,62 +294,41 @@ body {
 #shine {
     font-size: clamp(22px, 6vw, 60px);
     font-weight: bold;
-    color: rgba(255, 51, 119, 1);
+    color: #e8357a;
     z-index: 10;
-    background: -webkit-gradient(linear, left top, right top, from(#ff3377), to(#ff3377), color-stop(0.5, #fff)) 0 0 no-repeat;
-    background: linear-gradient(to right, #ff3377, #fff 50%, #ff3377) 0 0 no-repeat;
-    -webkit-background-size: 150px;
-    background-size: 150px;
+    background: linear-gradient(90deg,
+            #e8357a 0%,
+            #e8357a 35%,
+            #ffffff 50%,
+            #e8357a 65%,
+            #e8357a 100%);
+    background-size: 200% 100%;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-animation-name: shine;
-    animation-name: shine;
-    -webkit-animation-duration: 3s;
-    animation-duration: 3s;
-    -webkit-animation-iteration-count: infinite;
-    animation-iteration-count: infinite;
+    animation: shine 3s infinite;
+    -webkit-animation: shine 3s infinite;
     text-shadow: none;
     word-break: break-word;
 }
 
-@-webkit-keyframes shine {
-
-    0%,
-    10% {
-        background-position: -1000px;
-    }
-
-    20% {
-        background-position: top left;
-    }
-
-    90% {
-        background-position: top right;
+@keyframes shine {
+    0% {
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position: 1000px;
+        background-position: -100% 50%;
     }
 }
 
-@keyframes shine {
-
-    0%,
-    10% {
-        background-position: -1000px;
-    }
-
-    20% {
-        background-position: top left;
-    }
-
-    90% {
-        background-position: top right;
+@-webkit-keyframes shine {
+    0% {
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position: 1000px;
+        background-position: -100% 50%;
     }
 }
 
