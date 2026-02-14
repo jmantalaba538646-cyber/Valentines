@@ -294,10 +294,10 @@ body {
 #shine {
     font-size: clamp(22px, 6vw, 60px);
     font-weight: bold;
-    color: rgba(255, 0, 102, 0.3);
+    color: rgba(255, 51, 119, 1);
     z-index: 10;
-    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
-    background: linear-gradient(to right, #222, #fff 50%, #222) 0 0 no-repeat;
+    background: -webkit-gradient(linear, left top, right top, from(#ff3377), to(#ff3377), color-stop(0.5, #fff)) 0 0 no-repeat;
+    background: linear-gradient(to right, #ff3377, #fff 50%, #ff3377) 0 0 no-repeat;
     -webkit-background-size: 150px;
     background-size: 150px;
     -webkit-background-clip: text;
