@@ -4,8 +4,10 @@
     display: grid;
     place-items: center;
     /* Center both horizontally and vertically */
-    width: 220px;
-    margin-left: 220px;
+    width: 250px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .gallery>img {
@@ -283,22 +285,32 @@ body {
     align-items: center;
     margin-top: 20px;
     margin-bottom: 60px;
+    padding: 0 15px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
 }
 
 #shine {
-    font-size: 60px;
+    font-size: clamp(22px, 6vw, 60px);
     font-weight: bold;
     color: rgba(255, 0, 102, 0.3);
     z-index: 10;
     background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff)) 0 0 no-repeat;
+    background: linear-gradient(to right, #222, #fff 50%, #222) 0 0 no-repeat;
     -webkit-background-size: 150px;
+    background-size: 150px;
     -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     -webkit-animation-name: shine;
+    animation-name: shine;
     -webkit-animation-duration: 3s;
-    /* Adjust the duration as needed */
+    animation-duration: 3s;
     -webkit-animation-iteration-count: infinite;
-    text-shadow: 0 0px 0px rgba(233, 85, 189, 0.419);
-
+    animation-iteration-count: infinite;
+    text-shadow: none;
+    word-break: break-word;
 }
 
 @-webkit-keyframes shine {
@@ -321,26 +333,70 @@ body {
     }
 }
 
-@media only screen and (max-width: 600px) {
-    #shine {
-        font-size: 22px;
+@keyframes shine {
+
+    0%,
+    10% {
+        background-position: -1000px;
+    }
+
+    20% {
+        background-position: top left;
+    }
+
+    90% {
+        background-position: top right;
+    }
+
+    100% {
+        background-position: 1000px;
+    }
+}
+
+/* ===== Tablet (768px - 1024px) ===== */
+@media only screen and (max-width: 1024px) {
+    .gallery {
+        width: 220px;
     }
 
     #hedlinecontainer {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        margin-bottom: 40px;
+    }
+}
 
-        margin-bottom: 60px;
+/* ===== Small Tablet / Large Phone (481px - 768px) ===== */
+@media only screen and (max-width: 768px) {
+    .gallery {
+        width: 200px;
     }
 
+    #hedlinecontainer {
+        margin-top: 30px;
+        margin-bottom: 40px;
+    }
+
+    .gallery>img {
+        border-width: 8px;
+    }
+}
+
+/* ===== Phone (up to 480px) ===== */
+@media only screen and (max-width: 480px) {
     .gallery {
-        --d: 10s;
-        /* duration */
-        display: grid;
-        place-items: center;
-        /* Center both horizontally and vertically */
-        width: 150px;
-        margin-left: 60px;
+        width: 160px;
+    }
+
+    #hedlinecontainer {
+        margin-top: 25px;
+        margin-bottom: 30px;
+        padding: 0 10px;
+    }
+
+    .gallery>img {
+        border-width: 6px;
+    }
+
+    .falling-heart {
+        font-size: 14px !important;
     }
 }
